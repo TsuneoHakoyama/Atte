@@ -1,0 +1,12 @@
+{
+  "phpunit.command": "docker compose exec -t php /bin/sh -c \"${php} ${phpargs} ${phpunit} ${phpunitargs}\"",
+  "phpunit.php": "php",
+  "phpunit.phpunit": "./vendor/bin/phpunit",
+  "phpunit.args": [
+    "-c",
+    "phpunit.xml"
+  ],
+  "phpunit.paths": {
+    "${workspaceFolder}/src": "/var/www"
+  }
+}
