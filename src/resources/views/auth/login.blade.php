@@ -11,8 +11,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
-<body>
+<body class="container">
+    <div class="login-card">
+        <p class="card-title">ログイン</p>
+        <x-form action="/login" method="post">
 
+            <x-input-form type="email" name="email">メールアドレス</x-input-form>
+
+            <x-input-form type="password" name="password">パスワード</x-input-form>
+
+            <x-submit-button type="submit">
+                ログイン
+            </x-submit-button>
+        </x-form>
+        <p class="link">会員登録は<a href="/register">こちら</a>から</p>
+    </div>
 </body>
 
 </html>
