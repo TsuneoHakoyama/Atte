@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdministratorAuthenticationController;
 use App\Http\Controllers\AttendanceController;
+use App\Models\Attendance;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +23,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+Route::get('/admin/login', [AdministratorAuthenticationController::class, 'create']);
+
+Route::get('/admin/attendance', [AttendanceController::class, 'adminAttendance']);
+
+Route::get('/admin/user_list', [AttendanceController::class, 'usersList']);
+
+Route::get('/admin/user_detail', [AttendanceController::class, 'userDetail']);

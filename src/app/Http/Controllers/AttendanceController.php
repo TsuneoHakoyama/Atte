@@ -10,4 +10,19 @@ class AttendanceController extends Controller
     {
         return view('index');
     }
+
+    public function adminAttendance()
+    {
+        return view('admin.attendance');
+    }
+
+    public function usersList()
+    {
+        return view('admin.user_list');
+    }
+
+    public function userDetail()
+    {
+        return view('admin.user_detail');
+    }
 }

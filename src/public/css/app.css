@@ -52,7 +52,7 @@
 }
 
 /* index page */
-.main {
+.stamp {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -71,7 +71,7 @@
   gap: 20px;
 }
 
-.stamp {
+.stamp-button {
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
@@ -81,7 +81,7 @@
   align-items: center;
 }
 
-.stamp a {
+.stamp-button a {
   text-decoration: none;
   color: #333;
   font-size: large;
@@ -158,4 +158,99 @@
 .link a {
   text-decoration: none;
   color: #50A4F2;
+}
+
+/* admin_attendance */
+.attendance {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previous {
+  background-color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 3px 10px;
+  margin-right: 20px;
+}
+
+.previous a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.next {
+  background-color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 3px 10px;
+  margin-left: 20px;
+}
+
+.next a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.records {
+  margin-top: 40px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table th,
+.table td {
+  border-top: 1px solid #333;
+  padding: 10px;
+  text-align: left;
+}
+
+.table a {
+  text-decoration: none;
+}
+
+/* admin_user_list */
+.user-list {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+
+.btn-attendance {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+
+.btn-edit {
+  background-color: #008000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+
+.btn-delete {
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
 }
