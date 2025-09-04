@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdministratorAuthenticationController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Attendance;
 use Illuminate\Support\Facades\Route;
 
@@ -16,18 +18,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AttendanceController::class, 'index']);
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__ . '/auth.php';
+Route::middleware('auth')->group(function () {
+    Route::get('/', [AttendanceController::class, 'index']);
+});
 
 Route::get('/admin/login', [AdministratorAuthenticationController::class, 'create']);
-
 Route::get('/admin/attendance', [AttendanceController::class, 'adminAttendance']);
-
 Route::get('/admin/user_list', [AttendanceController::class, 'usersList']);
-
 Route::get('/admin/user_detail', [AttendanceController::class, 'userDetail']);
