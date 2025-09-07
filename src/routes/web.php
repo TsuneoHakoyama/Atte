@@ -18,18 +18,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('guest')->group(function () {
-    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('/register', [RegisteredUserController::class, 'store']);
-    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
-    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/', [AttendanceController::class, 'index']);
-});
-
-Route::get('/admin/login', [AdministratorAuthenticationController::class, 'create']);
-Route::get('/admin/attendance', [AttendanceController::class, 'adminAttendance']);
-Route::get('/admin/user_list', [AttendanceController::class, 'usersList']);
-Route::get('/admin/user_detail', [AttendanceController::class, 'userDetail']);
+require __DIR__ . '/user.php';
+require __DIR__ . '/admin.php';

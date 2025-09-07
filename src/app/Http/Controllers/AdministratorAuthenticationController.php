@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Providers\RouteServiceProvider;
 
 class AdministratorAuthenticationController extends Controller
 {
@@ -28,6 +30,6 @@ class AdministratorAuthenticationController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect('admin.attendance');
+        return redirect(RouteServiceProvider::ADMIN_HOME);
     }
 }
